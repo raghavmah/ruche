@@ -1,0 +1,308 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <meta name="description" content="">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="en_US">
+    <meta property="og:description" content="en_US">
+   
+    
+    <link rel="shortcut icon" href="{% static 'img/owl.jpg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <link herf ="{% static "css/bootstrap.min.css" %}" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link herf ="{% static "css/headers.css" %}" rel="stylesheet">  
+    <link herf ="{% static "css/head1.css" %}" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+          
+    {% block links %}
+        
+    {% endblock links %}
+        
+    <style>
+
+      .st{
+          height: 5px;
+           
+          background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 150, 0, 0.75), rgba(255, 255, 255, 0));
+          
+          border: 0;
+          height: 2px;
+      }
+      .rh{
+        text-color:white;
+        font-family: 'Tangerine', serif;
+        font-size: 24px;
+        text-shadow: 4px 4px 4px #aaa;
+      }
+      .rhr{
+        font-family: 'Tangerine', serif, bold;
+        font-size: 48px;
+        text-shadow: 4px 4px 4px #aaa;
+        text-color:white;
+      }
+      .bd-placeholder-img 
+      {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      
+      @media (min-width: 768px) 
+      {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      
+        
+     
+      
+      .b-example-vr 
+      {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .b-example-divider 
+      {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+      .bi
+      {
+        vertical-align: -.125em;
+        fill: white;
+        color:white;
+      }
+     
+      .nav-scroller 
+      {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      
+      .nav-scroller .nav 
+      {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .btn-bd-primary 
+      {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+      
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-black);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle 
+      {
+        z-index: 1500;
+      }
+      body{
+          background:#000;
+        }
+      .raise:hover,
+      .raise:focus {
+          box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+          transform: translateY(-0.25em);
+        }
+        
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+<style>
+  body{
+      background:#000;
+    }
+    
+    section.awSlider .carousel{
+      display:table;
+      z-index:2;
+      -moz-box-shadow: 0 0 4px #444;
+        -webkit-box-shadow: 0 0 4px #444;
+        box-shadow: 0 0 15px rgba(1,1,1,.5);
+    }
+    
+    
+    section.awSlider{
+      margin:30px auto;
+      padding:30px;
+      position:relative;
+      display:table;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    section.awSlider:hover > img{
+      -ms-transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+      opacity:0.5;
+    }
+    
+    section.awSlider img{
+      pointer-events: none;
+   }
+    
+   section.awSlider > img{
+      position:absolute;
+      top:30px;
+      z-index:-1;
+      transition:width 2s;
+      filter: blur(10px);
+      -webkit-filter: blur(10px);
+      -moz-filter: blur(10px); 
+      -o-filter: blur(10px); 
+      -ms-filter: blur(10px);
+      -ms-transform: scale(1);
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+      opacity:0.9; 
+    }
+    
+</style>
+  
+</head>
+<body>
+    <div class="d-flex flex-column">
+        {% include 'rugs/parts/header.html' %}
+        <!-----------------------------------------------------------------------header end---------------------------------------------->  
+        <!-------------------------------------------------------------------------------------------------------------------------------> 
+        <!-------------------------------------------------------------------------------------------------------------------------------> 
+        <!-------------------------------------------------------------------------------------------------------------------------------> 
+        <!-------------------------------------------------------------------carousel start----------------------------------------------> 
+               
+    
+
+
+
+
+
+
+<section class="awSlider">
+    <div   id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
+      <!-- Indicators -->
+    
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner " style=" height: 500px;" role="listbox">
+        
+        {% for carousel in carousels  %}
+        <div class="carousel-item item {% if forloop.counter == 1 %}active{% endif %}"data-bs-interval="10000">
+            <img src="{{carousel.Image.url}} " style=" height: 500px;" class=" img-fluid  w-100 mb-3 img-thumbnail shadow-sm rounded-0">
+            <div class="carousel-caption">Görsel #1</div>
+          </div>
+            
+        {% endfor %}
+            
+        
+      </div>
+  
+      <!-- Controls -->
+      <a class="left carousel-control-prev carousel-control" type="button" data-bs-target="#carouselExampleInterval" href=".carousel" role="button" data-bs-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only visually-hidden">Geri</span>
+      </a>
+      <a class="right  carousel-control-next carousel-control" type="button" data-bs-target="#carouselExampleInterval" href=".carousel" role="button" data-bs-slide="next">
+        <span class="glyphicon glyphicon-chevron-right carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only visually-hidden">İleri</span>
+      </a>
+    </div>
+  </section>
+        
+        <!------------------------------------------------------------carousel end-------------------------------------------------------> 
+        <!-------------------------------------------------------------------------------------------------------------------------------> 
+        <!-------------------------------------------------------------------------------------------------------------------------------> 
+        <!-------------------------------------------------------------------------------------------------------------------------------> 
+        <!---------------------------------------------------------------content---------------------------------------------------------> 
+
+        <div class=" flex-xxl-fill align-self-stretch text-center">
+            <b><h3 class="rhr text-white">
+      
+            {% block pagetitle %}
+            
+            {% for h in home %}
+                {{h.pagetitle}}
+            {% endfor %}
+                
+            {% endblock pagetitle %}
+              
+              
+              
+            </h3></b>
+            <hr class="rh ">
+            
+            
+                {% block content %}
+                
+                               {% for h in home %}
+                <p class="text-white">{{h.pagetext|safe}}</p>
+                {% endfor %}
+            
+                    
+                {% endblock content %}
+        
+            
+        </div>
+        <!-------------------------------------------------------------content end-------------------------------------------------------> 
+        <!-------------------------------------------------------------------------------------------------------------------------------> 
+        <!-------------------------------------------------------------------------------------------------------------------------------> 
+        <!-------------------------------------------------------------------------------------------------------------------------------> 
+        <!---------------------------------------------------------------footer start-----------------------------------------------------> 
+        <div class="text-bg-dark bottom-50">
+       {% include 'rugs/parts/footer.html' %}
+        </div>
+    </div>
+    
+    <script src="{% static "js/bootstrap.bundle.min.js" %}" ></script>
+    <script src="{% static "js/bootstrap.bundle.min.js.map" %}" ></script>
+    <script>
+      $('section.awSlider .carousel').carousel({
+        pause: "hover",
+      interval: 2000
+    });
+    </script>
+</body>
+</html>

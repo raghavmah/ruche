@@ -1,0 +1,21 @@
+{% extends "rugs/dashboard.html" %}
+
+
+
+
+
+{% block pagetitle %}
+    {% for c  in contact  %}
+        {{c.title}}
+    {% endfor %}
+{% endblock pagetitle %}
+
+
+{% block content %}
+    {% for c  in contact  %}
+        {{c.text|safe}}
+    {% endfor %}
+{% endblock content %}
+    
+    
+    
