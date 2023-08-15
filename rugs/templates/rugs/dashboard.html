@@ -24,7 +24,10 @@
     <link herf ="{% static "css/headers.css" %}" rel="stylesheet">  
     <link herf ="{% static "css/head1.css" %}" rel="stylesheet"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-          
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
     {% block links %}
         
     {% endblock links %}
@@ -143,11 +146,7 @@
         }
         
   </style>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ 
     
 <style>
   body{
@@ -230,8 +229,8 @@
       <div class="carousel-inner " style=" height: 500px;" role="listbox">
         
         {% for carousel in carousels  %}
-        <div class="carousel-item item {% if forloop.counter == 1 %}active{% endif %}"data-bs-interval="10000">
-            <img src="{{carousel.Image.url}} " style=" height: 500px;" class=" img-fluid  w-100 mb-3 img-thumbnail shadow-sm rounded-0">
+        <div class="carousel-item item {% if forloop.counter == 1 %}active{% endif %}"data-bs-interval="3000">
+            <img src="{{carousel.Image.url}} " style=" height: 500px;" class=" img-fluid mb-3 img-thumbnail shadow-sm rounded-0">
             <div class="carousel-caption">Görsel #1</div>
           </div>
             

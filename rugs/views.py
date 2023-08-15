@@ -1,4 +1,4 @@
-from django.shortcuts import render
+
 from .models import Products ,Images, Home,AboutUs, carousels, contact, headers
 from django.http import HttpResponse
 from django.views.generic import ListView,DetailView
