@@ -1,0 +1,15 @@
+vercel.json code:
+
+{
+    "builds": [{
+        "src": "rugindia/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.8" }
+    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "rugindia/wsgi.py"
+        }
+    ]
+}
