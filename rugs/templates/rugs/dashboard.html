@@ -14,7 +14,7 @@
     <meta property="og:description" content="en_US">
    
     
-    <link rel="shortcut icon" href="{% static 'img/owl.jpg' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% for h in head %} {{h.title_img.url}} {% endfor %}" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
@@ -34,14 +34,20 @@
         
     <style>
 
-      .st{
-          height: 5px;
-           
-          background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 150, 0, 0.75), rgba(255, 255, 255, 0));
+      
           
-          border: 0;
-          height: 2px;
+           
+        hr {
+          background-color: white;
+          margin-bottom: 2rem;
+         
+          border: 0; 
+  height: 1px; 
+  background-image: linear-gradient(to right, #000000, #ffffff, #000000);
       }
+              
+         
+      
       .rh{
         text-color:white;
         font-family: 'Tangerine', serif;
@@ -259,7 +265,9 @@
 
         <div class=" flex-xxl-fill align-self-stretch text-center">
             <b><h3 class="rhr text-white">
-      
+            
+            
+                
             {% block pagetitle %}
             
             {% for h in home %}
@@ -271,7 +279,7 @@
               
               
             </h3></b>
-            <hr class="rh ">
+            <hr class="st">
             
             
                 {% block content %}

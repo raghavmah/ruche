@@ -34,7 +34,11 @@
     {% endblock links %}
     {% block pagetitle %}
      
-       
+     {% for p in product  %}
+     <p class="text-white">{{p.des}}</p>
+     {% endfor %}
+        
+    
     {% endblock pagetitle %}
         
     
@@ -51,7 +55,8 @@
     <!-- Grid sizer -->
     <div class="grid-sizer col-lg-4 col-md-6"></div>
     {% for p in product  %}
-        {{p.des_id}}
+   
+        
     <!-- Grid item -->
     <div class="col-lg-4 col-md-6 grid-item mb-4">
         <img class="img-fluid w-100 mb-3 img-thumbnail shadow-sm rounded-0" src="{{ p.image.url}}" alt="">
@@ -59,7 +64,7 @@
         <p class="small font-italic text-white">{{p.desp| safe}}</p>
     </div>
     {% endfor %}
- <img > <p class="text-white"></p>
+ <img > 
 </div>
 </div>
     

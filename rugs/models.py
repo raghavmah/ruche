@@ -1,5 +1,6 @@
 from django.db import models
 import os 
+from django.utils.safestring import mark_safe
 # Create your models here.
 
 PROJECT_DIR =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -9,7 +10,7 @@ class Products(models.Model):
     class  Meta:  #new
         verbose_name_plural  =  "PRODUCTS NAME" 
     def __str__(self):
-        return f" PRODUCT NAME :{self.name}"
+        return f" {self.name}"
 
 class Home(models.Model):
     pagetitle=models.CharField(max_length=60,verbose_name="Enter the Page Sub Heading")
@@ -44,8 +45,11 @@ class carousels(models.Model):
         verbose_name_plural  =  "CAROUSELS IMAGES" 
     def __str__(self):
         return f"IMAGE : {self.Image}   TITLE:{self.Img_title} "
+    def car_preview(self): #new
+        return mark_safe(f'<img src = "{self.Image.url}" width = "100"/>')
 
 class headers(models.Model):
+    title_img=models.ImageField(upload_to=os.path.join(PROJECT_DIR, "frontend/img"),verbose_name="Enter The TITLE IMAGE")
     logo=models.ImageField(upload_to=os.path.join(PROJECT_DIR, "frontend/img"),verbose_name="Enter The Logo")
     email=models.EmailField(max_length=256,verbose_name="Enter The Email id",null=True,blank=True)
     insta=models.URLField(max_length=500,verbose_name="Enter The Instagram  Profile URl",null=True,blank=True)
@@ -55,8 +59,12 @@ class headers(models.Model):
         verbose_name_plural  =  "LOGO IMAGE AND SOCIAL MEDIA LINKS" 
     
     def __str__(self):
-        return f"site logo:{self.logo} ; email: {self.email}; instagram : {self.insta}; facebook :{self.facebook}; twitter:{self.twitter}"
+        return f" email: {self.email}; instagram : {self.insta}; facebook :{self.facebook}; twitter:{self.twitter}"
     
+    def logo_preview(self): #new
+        return mark_safe(f'<img src = "{self.logo.url}" width = "100"/>')
+    def title_preview(self): #new
+        return mark_safe(f'<img src = "{self.title_img.url}" width = "50"/>')
 
 
 class Images(models.Model):
@@ -69,3 +77,6 @@ class Images(models.Model):
     
     def __str__(self):
         return f"IMAGE : {self.image} TITLE:{self.title} DESCRIPTION:{self.desp}  PRODUCT NAME:{self.des}"
+    
+    def img_preview(self): #new
+        return mark_safe(f'<img src = "{self.image.url}" width = "300"/>')

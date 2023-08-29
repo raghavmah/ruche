@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import path , re_path
 from django.conf.urls import include
 from django.conf.urls.static import static
-from rugs import urls as rugs_urls
+from rugs import urls 
 from django.conf import settings
 
+from django_otp.admin import OTPAdminSite
+  
+admin.site.__class__ = OTPAdminSite
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('ragkallak/controlpanel/admin/', admin.site.urls),
     path('', include('rugs.urls')),
    
     
