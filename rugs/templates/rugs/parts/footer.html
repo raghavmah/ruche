@@ -32,49 +32,49 @@
         </symbol>
         </svg>
 
-        <div class="container  p-3" data-bs-theme="dark"   aria-pressed="false">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top text-white text-decoration-none">
-                <div class="col-md-4 d-flex align-items-center">
-                    <span class="mb-3 mb-md-0 text-body-secondary "><img src="{% for h in head %}
+        <div class="container  bg-black p-3" data-bs-theme="dark"   aria-pressed="false">
+            <footer class=" bg-black d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top text-white text-decoration-none">
+                <div class=" bg-black col-md-4 d-flex align-items-center">
+                    <span class=" bg-blackmb-3 mb-md-0 text-body-secondary "><img src="{% for h in head %}
                         {{h.logo.url}}
                         {% endfor %} " width=200></span>
                  </div>
                  
-                <ul class="  nav col-md-4 justify-content-end list-unstyled d-flex">
-                    {% for x in head %}
+                <ul class="  bg-black  nav col-md-4 justify-content-end list-unstyled d-flex">
+                  <!--  {% for x in head %}
                    {% if  x.twitter == null %}
-                    <li class="ms-3 "><a class=" text-body-secondary hidden"target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.twitter}}{% endfor %}"><svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+                    <li class="ms-3 " style="display: none;"><a class=" text-body-secondary hidden"target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.twitter}}{% endfor %}"><svg class="bi d-block mx-auto mb-1" fill="white" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
                     {% else %}
-                    <li class="ms-3 "><a class="text-body-secondary raise " type="button" target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.twitter}}{% endfor %}"><svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+                    <li class="ms-3 "><a class="text-body-secondary raise " type="button" target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.twitter}}{% endfor %}"><svg class="bi d-block mx-auto mb-1" fill="white" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
                     {% endif %}
                      
                     
                     {% if x.insta == null %}
-                    <li class="ms-3"><a class=" text-body-secondary hidden" target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.insta}}{% endfor %}"><svg class=" bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                    <li class="ms-3"><a class=" text-body-secondary hidden" target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.insta}}{% endfor %}"><svg class=" bi d-block mx-auto mb-1"fill="white" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
                     {% else %}
-                    <li class="ms-3"><a class=" text-body-secondary raise" type="button" target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.insta}}{% endfor %}"><svg class=" bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                    <li class="ms-3"><a class=" text-body-secondary raise" type="button" target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.insta}}{% endfor %}"><svg class=" bi d-block mx-auto mb-1" fill="white"width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
 
                     {% endif %}
 
                     
                     {% if x.facebook == null  %}
-                    <li class="ms-3"><a class="text-body-secondary hidden" target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.facebook}}{% endfor %}"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+                    <li class="ms-3" style="display: none;"><a class="text-body-secondary hidden" target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.facebook}}{% endfor %}"><svg class="bi" width="24" fill="white"height="24"><use xlink:href="#facebook"/></svg></a></li>
                     {% else %}
-                    <li class="ms-3"><a class=" text-body-secondary raise" type="button" target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.facebook}}{% endfor %}"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+                    <li class="ms-3"><a class=" text-body-secondary raise" type="button" target="_blank" rel="noopener noreferrer" href="{% for x in head %}{{x.facebook}}{% endfor %}"><svg class="bi"fill="white" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
 
                     {% endif %}
 
                     
                     {% if x.email == null %}
-                    <li class="ms-3"><a class=" text-body-secondary hidden " target="_blank" rel="noopener noreferrer" href="mailto:{% for x in head %} {{x.email}}{% endfor %}"><svg class="bi" width="24" height="24"><use xlink:href="#gmail"/></svg></a></li>
+                    <li class="ms-3"><a class=" text-body-secondary hidden " target="_blank" rel="noopener noreferrer" href="mailto:{% for x in head %} {{x.email}}{% endfor %}"><svg class="bi" fill="white" width="24" height="24"><use xlink:href="#gmail"/></svg></a></li>
                      {% else %}   
-                     <li class="ms-3"><a class=" text-body-secondary raise " type="button" target="_blank" rel="noopener noreferrer" href="mailto:{% for x in head %} {{x.email}}{% endfor %}"><svg class="bi" width="24" height="24"><use xlink:href="#gmail"/></svg></a></li>
+                     <li class="ms-3"><a class=" text-body-secondary raise " type="button" target="_blank" rel="noopener noreferrer" href="mailto:{% for x in head %} {{x.email}}{% endfor %}"><svg class="bi" fill="white" width="24" height="24"><use xlink:href="#gmail"/></svg></a></li>
 
                     {% endif %}
                         
                         
                         
-                    {% endfor %}
+                    {% endfor %} -->
                   
                 </ul>
             </footer>

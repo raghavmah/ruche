@@ -1,20 +1,116 @@
-{% extends "rugs/dashboard.html" %}
+{% extends 'rugs/dashboard.html' %}
+
+{%block links%}
+
+<link href='https://fonts.googleapis.com/css?family=Lato:400,100,300' rel='stylesheet' type='text/css'>
+
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,400,700" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Oswald:200,400,700" rel="stylesheet">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 
+<script src="https://use.fontawesome.com/20ab91acc4.js"></script>
+
+<style>
+        
+              
+             
+              
+              
+              
+              
+             
+              
+              
+              
+
+              
+              
+              .list-item {
+                line-height: 4;
+                color: #000;
+              }
+              
+              .contact-text {
+                font: 300 18px 'Lato', sans-serif;
+                letter-spacing: 1.9px;
+                color: #000;
+              }
+              
+              .place {
+                margin-left: 53px;
+              }
+              
+              .phone {
+                margin-left: 53px;
+              }
+              
+              .gmail {
+                margin-left: 53px;
+              }
+              
+              .contact-text a {
+                color: #000;
+                text-decoration: none;
+                transition-duration: 0.2s;
+              }
+              
+              .contact-text a:hover {
+                color: #fff;
+                text-decoration: none;
+              }
+              
+            
+              
+              .contact-list {
+                list-style-type: none;
+                margin-left: -30px;
+                padding-right: 20px;
+              }
+              
+              
+              
+              
+          
+              hr {
+                border-color: rgba(255,255,255,.6);
+              }
+              
+             
+</style>
 
 
+{% endblock links %}
+        
 
 {% block pagetitle %}
-    {% for c  in contact  %}
-        {{c.title}}
-    {% endfor %}
+    <h1 class="nova-mono-regular"> {{contacts.first.pagetitle}}</h1>
+
 {% endblock pagetitle %}
 
 
 {% block content %}
-    {% for c  in contact  %}
-        {{c.text|safe}}
-    {% endfor %}
+<div class="row justify-content-center   mb-5 gx-2">
+       
+        <div class="col-md-4 themed-grid-col  ">
+         
+                <ul class="contact-list mb-5">
+                        <li class="list-item"><i class="fa fa-user-circle fa-2x"><span class="contact-text place "> ASHOK KUMAR MAHESHWARI</span></i></i>
+                        <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place ">AGRA, UTTAR PRADESH,INDIA</span></i></li>
+                        
+                        <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">9897004104</a></span></i></li>
+                        
+                        <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:#" title="Send me an email">rugslinenindia@gmail.com</a></span></i></li>
+                        
+                </ul>
+        </div>
+        <div class="col-md-6 themed-grid-col" >
+                <iframe class="w-75 " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4219.258361531092!2d77.93308310376872!3d27.22042975545657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397479bc6c737175%3A0x7f1a1c17b8971a8!2sMahalaxmi%20Dhram%20kanta!5e0!3m2!1sen!2sin!4v1709055546734!5m2!1sen!2sin" 
+                   height="400px" style="border:10;  border-color: black;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+</div>
 {% endblock content %}
     
     

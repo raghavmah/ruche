@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Home,AboutUs,contact,carousels,headers ,Images,Products
+from .models import Home,AboutUs,contact,carousels,headers ,Images,Products,banner_one,banner_two
 from  django.contrib.auth.models  import  Group
 admin.site.site_header  =  "RAGHAV SITE DASHBOARD"  
 admin.site.site_title  =  "ADMIN SITE"
@@ -64,6 +64,29 @@ class carouselAdmin(admin.ModelAdmin):
     readonly_fields=['car_preview']
     list_display =("car_preview" ,"Img_title","Img_desc")
     list_display_links  =("car_preview" ,"Img_title","Img_desc")
+
+class banner_oneAdmin(admin.ModelAdmin):
+    readonly_fields=['car_preview']
+    list_display =("car_preview" ,"b_title")
+    list_display_links  =("car_preview" ,"b_title")
+    def has_add_permission(self, request):
+        num_objects = self.model.objects.count()
+        if num_objects >= 1:
+            return False
+        else:
+            return True
+
+class banner_twoAdmin(admin.ModelAdmin):
+    readonly_fields=['car_preview']
+    list_display =("car_preview" ,"b_title",)
+    list_display_links  =("car_preview" ,"b_title")
+    def has_add_permission(self, request):
+        num_objects = self.model.objects.count()
+        if num_objects >= 1:
+            return False
+        else:
+            return True
+
 admin.site.unregister(Group)
 admin.site.register(headers,headersAdmin)
 admin.site.register(Images,ImagesAdmin)
@@ -72,4 +95,6 @@ admin.site.register(AboutUs,AboutUsAdmin)
 admin.site.register(contact,contactAdmin)
 admin.site.register(carousels,carouselAdmin)
 admin.site.register(Products,ProductsAdmin)
+admin.site.register(banner_one,banner_oneAdmin)
+admin.site.register(banner_two,banner_twoAdmin)
 

@@ -1,76 +1,163 @@
 {% extends 'rugs/dashboard.html' %}
 
-
-    
 {% block links %}
-    <style>
-        body {
-            min-height: 100vh; 
-          }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
-    <script>
-        $(function () {
-    
-            // Initate masonry grid
-            var $grid = $('.gallery-wrapper').masonry({
-                temSelector: '.grid-item',
-                columnWidth: '.grid-sizer',
-                percentPosition: true,
-            });
-        
-            // Initate imagesLoaded
-            $grid.imagesLoaded().progress( function() {
-                $grid.masonry('layout');
-            });
-            
+
+  <script>
+    $(function () {
+
+        // Initate masonry grid
+        var $grid = $('.gallery-wrapper').masonry({
+            temSelector: '.grid-item',
+            columnWidth: '.grid-sizer',
+            percentPosition: true,
         });
-    </script>
-    {% endblock links %}
-    {% block pagetitle %}
-     
-     {% for p in product  %}
-     <p class="text-white">{{p.des}}</p>
-     {% endfor %}
+    
+        // Initate imagesLoaded
+        $grid.imagesLoaded().progress( function() {
+            $grid.masonry('layout');
+        });
         
-    
-    {% endblock pagetitle %}
-        
-    
+    });
+</script>
+    <style>
+  #myImg {
+border-radius: 5px;
+cursor: pointer;
+transition: 0.3s;
+}
 
-{% block content %}
-    
+#myImg:hover {
+opacity: 0.7;
+}
 
-    
+.modal {
+display: none;
+/* Hidden by default */
+position: fixed;
+/* Stay in place */
+z-index: 2;
+/* Sit on top */
+padding-top: 100px;
+/* Location of the box */
+left: 0;
+top: 0;
+width: 100%;
+/* Full width */
+height: 100%;
+/* Full height */
+overflow: auto;
+/* Enable scroll if needed */
+background-color: rgb(0, 0, 0);
+/* Fallback color */
+background-color: rgba(0, 0, 0, 0.9);
+/* Black w/ opacity */
+}
 
+.modal-content {
+margin: auto;
+display: block;
+width: 80%;
+max-width: 700px;
+}
+
+#caption {
+margin: auto;
+display: block;
+width: 80%;
+max-width: 700px;
+text-align: center;
+color: #ccc;
+padding: 10px 0;
+height: 150px;
+}
+
+.modal-content,
+#caption {
+animation-name: zoom;
+animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+from {
+  transform: scale(0)
+}
+to {
+  transform: scale(1)
+}
+}
+
+.close {
+position: absolute;
+top: 15px;
+right: 35px;
+color: #f1f1f1;
+font-size: 40px;
+font-weight: bold;
+transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+color: #bbb;
+text-decoration: none;
+cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+.modal-content {
+  width: 100%;
+}
+}
+</style>    
+{% endblock links %}
+    
+{% block pagetitle %}
+    
+       <h2 class="nova-mono-regular"> {{ product.first.des}}</h2>
+    
+{% endblock pagetitle %}	
+{%block content%}
 <section class="pb-5">
-    <div class="container text-center">
+  <div class="container text-center">
 
-<div class="gallery-wrapper">
-    <!-- Grid sizer -->
-    <div class="grid-sizer col-lg-4 col-md-6"></div>
-    {% for p in product  %}
-   
-        
-    <!-- Grid item -->
-    <div class="col-lg-4 col-md-6 grid-item mb-4">
-        <img class="img-fluid w-100 mb-3 img-thumbnail shadow-sm rounded-0" src="{{ p.image.url}}" alt="">
-        <h2 class="h4 text-white">{{p.title}}</h2>
-        <p class="small font-italic text-white">{{p.desp| safe}}</p>
-    </div>
-    {% endfor %}
- <img > 
+      <div class="gallery-wrapper">
+<!-- Grid sizer -->
+          <div class="grid-sizer col-lg-4 col-md-6">
+          </div>
+              {% for p in product  %}
+ 
+      
+<!-- Grid item -->
+                  <div class="col-lg-4 col-md-6 grid-item mb-4">
+                      <img class="myImg img-fluid w-100 mb-3 img-thumbnail shadow-sm rounded-0" id="myImg" src="{{ p.image.url}}" alt="">
+                      <h2 class="h4 text-white">{{p.title}}</h2>
+                      <p class="small font-italic text-white">{{p.desp| safe}}</p>
+                  </div>
+              {% endfor %}
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
 </div>
+              
+
+      </div>
+      
+  
+  
+      
 </div>
-    
 
-    
 
-    
-{% endblock content %}
+  
 
+</section>
+{%endblock content%}

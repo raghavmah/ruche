@@ -9,6 +9,7 @@ class Products(models.Model):
     name= models.CharField( max_length=64, unique=True,verbose_name="Enter the Categories Name")
     class  Meta:  #new
         verbose_name_plural  =  "PRODUCTS NAME" 
+ 
     def __str__(self):
         return f" {self.name}"
 
@@ -47,6 +48,27 @@ class carousels(models.Model):
         return f"IMAGE : {self.Image}   TITLE:{self.Img_title} "
     def car_preview(self): #new
         return mark_safe(f'<img src = "{self.Image.url}" width = "100"/>')
+    
+class banner_one(models.Model):
+    b_title=models.CharField(max_length=60,verbose_name="Enter the Banner Heading")
+    b_img1=models.ImageField(upload_to=os.path.join(PROJECT_DIR, "frontend/img"),verbose_name="Enter The First Image for Banner")
+    b_img2=models.ImageField(upload_to=os.path.join(PROJECT_DIR, "frontend/img"),verbose_name="Enter The First Image for Banner")
+    b_img3=models.ImageField(upload_to=os.path.join(PROJECT_DIR, "frontend/img"),verbose_name="Enter The First Image for Banner")
+    class  Meta:  #new
+        verbose_name_plural  =  "BANNER ONE" 
+    
+    def __str__(self):
+        return f" BANNER NAME :{self.b_title}"
+    def car_preview(self): #new
+        return mark_safe(f'<img src = "{self.b_img1.url}" width = "100"/>')
+
+class banner_two(models.Model):
+    b_title=models.CharField(max_length=60,verbose_name="Enter the Banner heading")
+    b_img1=models.ImageField(upload_to=os.path.join(PROJECT_DIR, "frontend/img"),verbose_name="Enter The First Image for Banner")
+    b_img2=models.ImageField(upload_to=os.path.join(PROJECT_DIR, "frontend/img"),verbose_name="Enter The First Image for Banner")
+    b_img3=models.ImageField(upload_to=os.path.join(PROJECT_DIR, "frontend/img"),verbose_name="Enter The First Image for Banner")
+    def car_preview(self): #new
+        return mark_safe(f'<img src = "{self.b_img1.url}" width = "100"/>   ')
 
 class headers(models.Model):
     title_img=models.ImageField(upload_to=os.path.join(PROJECT_DIR, "frontend/img"),verbose_name="Enter The TITLE IMAGE")
@@ -68,10 +90,11 @@ class headers(models.Model):
 
 
 class Images(models.Model):
-    title=models.CharField(max_length=30, null=True,verbose_name="Enter The image title")
-    desp =models.CharField( max_length=250,verbose_name="Enter Image Description")
+    title=models.CharField(max_length=30,verbose_name="Enter The image title",blank=True  )
+    desp =models.CharField( max_length=250,verbose_name="Enter Image Description",blank=True )
     image=models.ImageField(upload_to=os.path.join(PROJECT_DIR, "frontend/img"))
     des = models.ForeignKey(Products,on_delete=models.CASCADE )
+   
     class  Meta:  #new
         verbose_name_plural  =  "PRODUCTS IMAGES" 
     
@@ -80,3 +103,4 @@ class Images(models.Model):
     
     def img_preview(self): #new
         return mark_safe(f'<img src = "{self.image.url}" width = "300"/>')
+    

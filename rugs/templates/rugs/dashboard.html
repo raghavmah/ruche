@@ -24,10 +24,15 @@
     <link herf ="{% static "css/headers.css" %}" rel="stylesheet">  
     <link herf ="{% static "css/head1.css" %}" rel="stylesheet"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@1,100..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Caveat:wght@400..700&family=Delius+Unicase:wght@400;700&family=Nova+Mono&display=swap" rel="stylesheet"><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
+    
     {% block links %}
         
     {% endblock links %}
@@ -38,12 +43,12 @@
           
            
         hr {
-          background-color: white;
+          background-color: black;
           margin-bottom: 2rem;
          
           border: 0; 
   height: 1px; 
-  background-image: linear-gradient(to right, #000000, #ffffff, #000000);
+  background-image: linear-gradient(to right, #ffffff, #000000, #ffffff);
       }
               
          
@@ -97,8 +102,7 @@
       .bi
       {
         vertical-align: -.125em;
-        fill: white;
-        color:white;
+        
       }
      
       .nav-scroller 
@@ -142,21 +146,15 @@
       {
         z-index: 1500;
       }
-      body{
-          background:#000;
-        }
+    
       .raise:hover,
       .raise:focus {
           box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
           transform: translateY(-0.25em);
         }
-        
-  </style>
  
-    
-<style>
   body{
-      background:#000;
+      background:#fffff0;
     }
     
     section.awSlider .carousel{
@@ -208,11 +206,45 @@
       opacity:0.9; 
     }
     
+      
+      .josefin-slab {
+        font-family: "Josefin Slab", serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: italic;
+      }
+
+     
+        .bitter {
+          font-family: "Bitter", serif;
+          font-optical-sizing: auto;
+          font-weight: 400;
+          font-style: normal;
+        }
+        .nova-mono-regular {
+          font-family: "Nova Mono", monospace;
+          font-weight: 900;
+          font-style: normal;
+          font-size:70px
+        }
+        .nova-mono-regular-1 {
+          font-family: "Nova Mono", monospace;
+          font-weight: 400;
+          font-style: normal;
+        
+        }
+
+        .delius-unicase-bold {
+          font-family: "Delius Unicase", cursive;
+          font-weight: 700;
+          font-style: italic;
+        }
+        
 </style>
   
 </head>
 <body>
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column ">
         {% include 'rugs/parts/header.html' %}
         <!-----------------------------------------------------------------------header end---------------------------------------------->  
         <!-------------------------------------------------------------------------------------------------------------------------------> 
@@ -223,39 +255,41 @@
     
 
 
-
-
-
-
-<section class="awSlider">
-    <div   id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
-      <!-- Indicators -->
-    
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner " style=" height: 500px;" role="listbox">
-        
-        {% for carousel in carousels  %}
-        <div class="carousel-item item {% if forloop.counter == 1 %}active{% endif %}"data-bs-interval="3000">
-            <img src="{{carousel.Image.url}} " style=" height: 500px;" class=" img-fluid mb-3 img-thumbnail shadow-sm rounded-0">
-            <div class="carousel-caption">Görsel #1</div>
-          </div>
+        <div class="container text-center">
+          <section class="awSlider ">
+            <div   id="carouselExampleInterval" class="carousel slide  w-100 ar" data-bs-ride="carousel">
+              <!-- Indicators -->
             
-        {% endfor %}
-            
-        
-      </div>
-  
-      <!-- Controls -->
-      <a class="left carousel-control-prev carousel-control" type="button" data-bs-target="#carouselExampleInterval" href=".carousel" role="button" data-bs-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only visually-hidden">Geri</span>
-      </a>
-      <a class="right  carousel-control-next carousel-control" type="button" data-bs-target="#carouselExampleInterval" href=".carousel" role="button" data-bs-slide="next">
-        <span class="glyphicon glyphicon-chevron-right carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only visually-hidden">İleri</span>
-      </a>
-    </div>
-  </section>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner "  role="listbox">
+                
+                {% for carousel in carousels  %}
+                <div class="carousel-item item {% if forloop.counter == 1 %}active{% endif %}"data-bs-interval="3000">
+                    <img src="{{carousel.Image.url}} " class=" img-fluid  img-thumbnail shadow-sm rounded-0 w-100">
+                    <div class="carousel-caption nova-mono-regular-1 "><h3>{{carousel.Img_title}}</h3></div>
+                  </div>
+                    
+                {% endfor %}
+                    
+                
+              </div>
+          
+              <!-- Controls -->
+              <a class="left carousel-control-prev carousel-control" type="button" data-bs-target="#carouselExampleInterval" href=".carousel" role="button" data-bs-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only visually-hidden">Geri</span>
+              </a>
+              <a class="right  carousel-control-next carousel-control" type="button" data-bs-target="#carouselExampleInterval" href=".carousel" role="button" data-bs-slide="next">
+                <span class="glyphicon glyphicon-chevron-right carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only visually-hidden">İleri</span>
+              </a>
+            </div>
+          </section>
+        </div>
+
+
+
+
         
         <!------------------------------------------------------------carousel end-------------------------------------------------------> 
         <!-------------------------------------------------------------------------------------------------------------------------------> 
@@ -264,31 +298,100 @@
         <!---------------------------------------------------------------content---------------------------------------------------------> 
 
         <div class=" flex-xxl-fill align-self-stretch text-center">
-            <b><h3 class="rhr text-white">
             
-            
-                
             {% block pagetitle %}
-            
-            {% for h in home %}
-                {{h.pagetitle}}
-            {% endfor %}
-                
+              
             {% endblock pagetitle %}
               
-              
-              
-            </h3></b>
             <hr class="st">
             
             
                 {% block content %}
+
                 
-                               {% for h in home %}
-                <p class="text-white">{{h.pagetext|safe}}</p>
-                {% endfor %}
-            
+                <div class="container-fluid" >
+                  
+                  <div class="container text-center m-5  josefin-slab  p-5"> <h3><b> We are experts in manufacturing world class rugs .With material like cotton ,jute & leather. Our core values as folows:</b></h3> </div>
+                 
+               
+                
+                  <div class="row  text-center my-3 ">
                     
+                    <div class="col-md-4 themed-grid-col mb-4 text-center "> 
+                          <?xml version="1.0" encoding="utf-8"?>
+                          <svg height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 122.88" style="enable-background:new 0 0 122.88 122.88" xml:space="preserve">
+                            <style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;}</style>
+                            <g>
+                              <path class="st0" d="M61.44,0l13.52,10.99l17.2-2.76l6.21,16.28l16.28,6.21l-2.76,17.2l10.99,13.52l-10.99,13.52l2.76,17.2 l-16.28,6.21l-6.21,16.28l-17.2-2.76l-13.52,10.99l-13.52-10.99l-17.2,2.76l-6.21-16.28L8.23,92.16l2.76-17.2L0,61.44l10.99-13.52 l-2.76-17.2l16.28-6.21l6.21-16.28l17.2,2.76L61.44,0L61.44,0z M40.82,56.36h9.83c0.79,0,1.44,0.65,1.44,1.45v19.22 c0,0.79-0.65,1.45-1.44,1.45h-9.83c-0.79,0-1.45-0.65-1.45-1.45V57.81C39.38,57.01,40.03,56.36,40.82,56.36L40.82,56.36z M62.02,41.95c0.76-3.86,7.08-0.3,7.5,5.92c0.13,1.9-0.07,4.12-0.54,6.59l9.03,0c3.76,0.15,7.03,2.84,4.72,7.26 c0.53,1.92,0.61,4.18-0.83,5.07c0.18,3.04-0.66,4.92-2.23,6.41c-0.1,1.52-0.43,2.87-1.16,3.91c-1.21,1.71-2.2,1.3-4.11,1.3H59.15 c-2.42,0-3.73-0.67-5.31-2.65V58.77c4.55-1.23,6.96-7.45,8.18-11.53V41.95L62.02,41.95z M61.44,24.02 c20.67,0,37.42,16.76,37.42,37.42c0,20.67-16.76,37.42-37.42,37.42c-20.67,0-37.42-16.76-37.42-37.42 C24.02,40.77,40.77,24.02,61.44,24.02L61.44,24.02z"/>
+                            </g>
+                          </svg>  
+                          <h4 class="bitter">QUALITY</h4>          
+                          <p class="josefin-slab">Manufacturing high  end quality for customers over multiple decades.Which in turns creates customer satisfaction & trust.   </p>                                     
+                    </div>
+                    
+                    <div class="col-md-4 themed-grid-col mb-4 border-right border-left  border-dark">
+                        <?xml version="1.0" encoding="utf-8"?>
+                        <svg height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 114.07" style="enable-background:new 0 0 122.88 114.07" xml:space="preserve">
+                        <style type="text/css">
+                          .st0{fill-rule:evenodd;clip-rule:evenodd;}
+                        </style>
+                        <g>
+                          
+                          <path class="st0" d="M0,114.07h32.06V74.53c0-0.26,0.03-0.52,0.09-0.77C5.45,77.57,6.81,89.89,0,114.07L0,114.07z M40.66,34.12 v4.98l1.7,2.33c0.26,0.35,0.4,0.76,0.42,1.17l0.01,0c0.61,8.65,2.92,14.03,6.38,17.41c3.37,3.29,7.97,4.8,13.21,5.64 c5.66-0.93,10.1-3.3,13.26-7.02c3.29-3.87,5.29-9.26,5.91-16.06c0.03-0.35,0.14-0.67,0.31-0.95l0,0l1.51-2.5l0.03-5.18l4.46,0.02 l-0.03,5.65c0.03,0.44-0.07,0.9-0.32,1.31l-1.57,2.6c-0.77,7.49-3.1,13.53-6.91,18.01c-3.94,4.63-9.38,7.53-16.26,8.6 c-0.24,0.04-0.48,0.05-0.73,0.01c-6.21-0.95-11.74-2.77-15.99-6.92c-4.14-4.04-6.91-10.17-7.68-19.67l-1.63-2.24 c-0.35-0.4-0.56-0.92-0.56-1.49v-5.69H40.66L40.66,34.12z M61.16,0c2.14,0,4.22,0.22,6.23,0.64l-0.38,17.93l6.53-15.95 c9.2,4.09,16,12.59,17.71,22.82h3.53v4.19h-3.12c0,0.02,0,0.04,0,0.06H30.65c0-0.02,0-0.04,0-0.06H28.1v-4.19h2.96 c1.77-10.56,8.96-19.28,18.62-23.2l5.71,16.06l0.6-17.86C57.67,0.15,59.4,0,61.16,0L61.16,0z M58.03,99.73h6.81v6.81h-6.81V99.73 L58.03,99.73z M58.03,82.89h6.81v6.81h-6.81V82.89L58.03,82.89z M38.35,114.07h23.09h23.09V74.53c0-0.49,0.11-0.96,0.32-1.37 L61.44,73.3l-23.41-0.14c0.2,0.41,0.32,0.88,0.32,1.37V114.07L38.35,114.07z M90.82,114.07h32.06c-6.81-24.18-5.45-36.5-32.16-40.3 c0.06,0.25,0.09,0.5,0.09,0.77V114.07L90.82,114.07z"/>
+                        </g>
+                        
+                      </svg>
+                      <h4 class="bitter">EXPERIENCE</h4>
+                      <h4 class="bitter">WORKERS</h4>
+                      <p class="josefin-slab" >Highly efficient & skilled workers ,who have years of experience.Therefore resulting in great quality products.
+                      </p>
+                    </div>
+                    <div class="col-md-4 themed-grid-col mb-4"> 
+                      <svg height="100px" width="100px" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.77 122.88">
+                        
+                        <path d="M2.89,59.92a2.79,2.79,0,0,1-2-.75,2.84,2.84,0,0,1-.88-2,2.8,2.8,0,0,1,2.72-2.89l8.65-.3a2.83,2.83,0,0,1,2,.76,2.81,2.81,0,0,1-1.83,4.85l-8.66.29ZM68.1,40.42a6.12,6.12,0,0,1,2.14.35,8.27,8.27,0,0,1,3.61,2.5,8,8,0,0,1,1.89,4.31,7.84,7.84,0,0,1-.12,2.4,9.29,9.29,0,0,1,1.83,2.21,7.3,7.3,0,0,1,1,3.92,7,7,0,0,1-1.43,4,9.66,9.66,0,0,1-2.4,2.25,8.87,8.87,0,0,1-1.53,5.5A7.15,7.15,0,0,1,68.63,71a7,7,0,0,1-8.2,4.9,5.7,5.7,0,0,1-3.58-3A6.13,6.13,0,0,1,52.76,76a6.37,6.37,0,0,1-5.16-1.29A6.24,6.24,0,0,1,45.27,71a6.42,6.42,0,0,1-1.81-.34,8.33,8.33,0,0,1-3.54-2.43A8.13,8.13,0,0,1,38,64.1a7.56,7.56,0,0,1,.09-2.63,9.15,9.15,0,0,1-1.67-2,7.54,7.54,0,0,1-1.14-4,7.16,7.16,0,0,1,1.45-4.19A9.87,9.87,0,0,1,39,49.09c0-.27,0-.55,0-.82A8.77,8.77,0,0,1,41,43a6.9,6.9,0,0,1,4.28-2.55h0a5.07,5.07,0,0,1,.22-.76,6.6,6.6,0,0,1,2.87-3.34,6.22,6.22,0,0,1,4.39-.77,6,6,0,0,1,3.93,2.86,6.06,6.06,0,0,1,3.94-2.86,6.17,6.17,0,0,1,4,.58,6.79,6.79,0,0,1,2.88,2.76,6,6,0,0,1,.56,1.48Zm-9.83.89V68.82a1.38,1.38,0,0,1,.25.58c.39,2.4,1.43,3.56,2.61,3.88a4,4,0,0,0,3.31-.76,3.65,3.65,0,0,0,1.68-2.8c0-1.22-.88-2.61-3.28-3.83a1.33,1.33,0,1,1,1.21-2.36c2.66,1.35,4,3,4.52,4.71a4.72,4.72,0,0,0,2.37-1.87A6.29,6.29,0,0,0,72,62a1.33,1.33,0,0,1,.63-1.43,7.61,7.61,0,0,0,2.33-2,4.32,4.32,0,0,0,.91-2.5,4.73,4.73,0,0,0-.68-2.51,6.74,6.74,0,0,0-1.79-2A1.35,1.35,0,0,1,72.84,50a4.92,4.92,0,0,0,.25-2.18A5.44,5.44,0,0,0,71.82,45a5.63,5.63,0,0,0-2.43-1.7,3.51,3.51,0,0,0-1.37-.2,6.25,6.25,0,0,1-1.29,2.35,1.32,1.32,0,1,1-2-1.7,3,3,0,0,0,.49-3.54,4,4,0,0,0-1.73-1.65,3.53,3.53,0,0,0-2.29-.35c-1.13.23-2.22,1.17-2.9,3.11Zm6.78,9a1.33,1.33,0,0,1,1.56-2.15c.28.2.53.41.77.62a8.78,8.78,0,0,1,2.91,5.88,9.34,9.34,0,0,1-1.78,6.26c-.19.26-.41.52-.66.8a1.33,1.33,0,0,1-2-1.78,7.37,7.37,0,0,0,.47-.58,6.76,6.76,0,0,0,1.29-4.49,6.14,6.14,0,0,0-2-4.11,5.7,5.7,0,0,0-.55-.45ZM55.6,42.7h0l0,0h0l-.06-.1h0l0,0h0v0h0v0h0v0h0v0h0v0h0c-.64-2.59-1.89-3.78-3.18-4a3.63,3.63,0,0,0-2.52.47A3.92,3.92,0,0,0,48,40.62a3.28,3.28,0,0,0,1.18,3.62,1.33,1.33,0,0,1-1.81,1.95,6.75,6.75,0,0,1-2-3,4.36,4.36,0,0,0-2.33,1.56,6.11,6.11,0,0,0-1.36,3.66,7.25,7.25,0,0,0,.07,1.21,1.34,1.34,0,0,1-.62,1.31,8,8,0,0,0-2.27,2,4.52,4.52,0,0,0-.93,2.64,4.81,4.81,0,0,0,.75,2.56,6.43,6.43,0,0,0,1.67,1.79,1.34,1.34,0,0,1,.5,1.53,5.08,5.08,0,0,0-.23,2.32,5.52,5.52,0,0,0,1.3,2.78,5.74,5.74,0,0,0,2.38,1.65,3.93,3.93,0,0,0,1.09.2c.52-1.72,2-3.45,4.68-4.84a1.33,1.33,0,1,1,1.21,2.36c-2.52,1.29-3.47,2.77-3.47,4.07a3.42,3.42,0,0,0,1.41,2.61,3.77,3.77,0,0,0,3,.79c1.29-.27,2.54-1.46,3.18-4.06a1.35,1.35,0,0,1,.2-.44V42.7Zm-9.88,6.37A1.33,1.33,0,1,1,47.58,51a6.17,6.17,0,0,0-1.85,4.17,6.71,6.71,0,0,0,1.52,4.52,1.33,1.33,0,0,1-2.08,1.67A9.46,9.46,0,0,1,43.07,55a8.83,8.83,0,0,1,2.65-6Zm-1.14,53.11a2.26,2.26,0,0,1-.48-4.48c-1.29-7.33-4.82-11.36-8.55-15.63-2.9-3.32-5.91-6.77-8.29-11.85a35.77,35.77,0,0,1-3.58-15.54,36.57,36.57,0,0,1,4.38-16.62l.06-.1h0A31.55,31.55,0,0,1,43.5,24.51a34,34,0,0,1,16-2.29,36.7,36.7,0,0,1,15.28,4.91A31.55,31.55,0,0,1,88.13,42.25,33.57,33.57,0,0,1,90.65,54a34.15,34.15,0,0,1-2.59,13.8c-2.65,6.55-6.15,10.62-9.42,14.43-3,3.5-5.82,6.77-7.38,11.77a2.26,2.26,0,0,1-.21,4.43l-.76.11c-.14,1.09-.23,2.25-.27,3.5l.25,0a2.26,2.26,0,1,1,.62,4.48l-.77.11,0,.45h0a17.91,17.91,0,0,1,0,2.53l.13,0a2.27,2.27,0,0,1,.55,4.5l-1.68.2a13.51,13.51,0,0,1-5.83,6.91,12.73,12.73,0,0,1-5.58,1.7A11.59,11.59,0,0,1,52,121.73a12.11,12.11,0,0,1-5.26-5.11,2.25,2.25,0,0,1-1.22-1.74,2.2,2.2,0,0,1,.07-.89,19.64,19.64,0,0,1-.87-3.8h-.07a2.26,2.26,0,0,1-.62-4.48l.54-.07c0-1.23,0-2.38,0-3.47Zm3.73-5.08L66.7,94.49c1.58-6.67,5-10.67,8.74-15,3.06-3.56,6.33-7.36,8.71-13.26a29.94,29.94,0,0,0,2.3-12.12,29.2,29.2,0,0,0-2.23-10.28A27.26,27.26,0,0,0,72.64,30.76a32.33,32.33,0,0,0-13.51-4.35,29.89,29.89,0,0,0-14.05,2A27.43,27.43,0,0,0,31.76,40.07a32.35,32.35,0,0,0-3.87,14.64,31.57,31.57,0,0,0,3.18,13.73A44.91,44.91,0,0,0,38.72,79.3c4.21,4.82,8.19,9.38,9.59,17.8ZM66,99.16,48.78,101.6c0,1.09.07,2.24,0,3.45l17-2.41c0-1.23.07-2.39.17-3.48Zm-17,10.44a16.21,16.21,0,0,0,.53,2.52l16.45-2a13.67,13.67,0,0,0,.06-2.73h0v-.19l-17,2.42Zm2.87,6.79a7.56,7.56,0,0,0,2.09,1.55,7.4,7.4,0,0,0,3.66.72,8.53,8.53,0,0,0,3.71-1.14,9.07,9.07,0,0,0,2.86-2.64l-12.32,1.51ZM110.68,50a2.8,2.8,0,0,1,3.08,2.5,2.81,2.81,0,0,1-2.51,3.08l-8.61.91a2.78,2.78,0,0,1-2.06-.62,2.81,2.81,0,0,1,1.49-5l8.61-.9ZM94.48,15a2.85,2.85,0,0,1,1.79-1.19A2.8,2.8,0,0,1,99.57,16a2.78,2.78,0,0,1-.42,2.1l-4.81,7.2a2.8,2.8,0,0,1-1.79,1.2,2.84,2.84,0,0,1-2.1-.43,2.78,2.78,0,0,1-1.2-1.79,2.75,2.75,0,0,1,.43-2.1l4.8-7.2ZM57.3,2.74a2.85,2.85,0,0,1,.86-2,2.81,2.81,0,0,1,4.74,2.1l-.21,8.65a2.81,2.81,0,1,1-5.61-.12l.22-8.66ZM14,16.64l0,0a2.81,2.81,0,0,1-.09-3.92l0,0a2.78,2.78,0,0,1,1.9-.85,2.84,2.84,0,0,1,2,.75c2.09,2,4.23,3.95,6.33,5.91a2.83,2.83,0,0,1,.9,2,2.87,2.87,0,0,1-.75,2l0,0a2.81,2.81,0,0,1-3.92.09c-2-1.93-4.25-4.09-6.35-5.92Z"/></svg>
+                        <h4 class="bitter">INNOVATIONS</h4>
+                        <p class="josefin-slab">Always starting news trends in industry by innovating the latest product & designs.
+                        </p>
+                    </div>
+                  </div>
+                
+                </div> 
+              
+                
+                
+                
+                <hr class="st">
+                  
+
+
+                <div class="container-fluid my-5 "  >
+                  
+                  <div class="container text-center delius-unicase-bold"><h2>{{banner1.first.b_title}}<h2></div>
+                 
+               
+                
+                  <div class="row  text-center pt-4 my-3 bg-black">
+                    <div class="col-md-4 themed-grid-col mb-4"> <img class = "img-responsive" height="200px" width = "100%" src="{{banner1.first.b_img1}}" ></div>
+                    <div class="col-md-4 themed-grid-col mb-4"><img class = "img-responsive " height="200px" width = "100%" src="{{banner1.first.b_img2}}"  ></div>
+                    <div class="col-md-4 themed-grid-col mb-4"> <img class = "img-responsive" height="200px" width = "100%" src="{{banner1.first.b_img3}}" ></div>
+                  </div>
+                
+                </div> 
+                <div class="container-fluid my-5 "  >
+                  
+                  <div class="container text-center delius-unicase-bold"><h2>{{banner2.first.b_title}}</h2></div>
+                 
+               
+                
+                  <div class="row  text-center pt-4 my-3 bg-black">
+                    <div class="col-md-4 themed-grid-col mb-4"> <img class = "img-responsive" height="200px" width = "100%" src="{{banner2.first.b_img1}}" ></div>
+                    <div class="col-md-4 themed-grid-col mb-4"><img class = "img-responsive " height="200px" width = "100%" src="{{banner2.first.b_img2}}"  ></div>
+                    <div class="col-md-4 themed-grid-col mb-4"> <img class = "img-responsive" height="200px" width = "100%" src="{{banner2.first.b_img3}}" ></div>
+                  </div>
+                
+                </div> 
+
                 {% endblock content %}
         
             
@@ -298,7 +401,7 @@
         <!-------------------------------------------------------------------------------------------------------------------------------> 
         <!-------------------------------------------------------------------------------------------------------------------------------> 
         <!---------------------------------------------------------------footer start-----------------------------------------------------> 
-        <div class="text-bg-dark bottom-50">
+        <div class="bg-black bottom-50">
        {% include 'rugs/parts/footer.html' %}
         </div>
     </div>
